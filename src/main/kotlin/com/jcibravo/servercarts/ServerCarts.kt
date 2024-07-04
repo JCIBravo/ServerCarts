@@ -1,7 +1,7 @@
 package com.jcibravo.servercarts
 import com.bergerkiller.bukkit.tc.signactions.SignAction
-import com.jcibravo.signs.SignActionComment
-import com.jcibravo.signs.SignActionNextStop
+import com.jcibravo.servercarts.signs.SignActionComment
+import com.jcibravo.servercarts.signs.SignActionNextStop
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
 

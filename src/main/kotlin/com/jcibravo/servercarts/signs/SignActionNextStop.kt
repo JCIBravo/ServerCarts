@@ -1,4 +1,4 @@
-package com.jcibravo.signs
+package com.jcibravo.servercarts.signs
 
 import com.bergerkiller.bukkit.tc.events.SignActionEvent
 import com.bergerkiller.bukkit.tc.events.SignChangeActionEvent
