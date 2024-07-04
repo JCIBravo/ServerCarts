@@ -1,0 +1,32 @@
+name: ServerCarts
+version: '${version}'
+main: com.jcibravo.servercarts.ServerCarts
+api-version: 1.20
+prefix: 'JCIB - ServerCarts'
+load: STARTUP
+loadbefore: [ BKCommonLib, Train_Carts, SignLink, dynmap ]
+depend: [ BKCommonLib, Train_Carts ]
+softdepend: [ SignLink, dynmap ]
+author: 'JCIBravo'
+description: 'API client for TrainCarts'
+website: 'https://jcibravo.neocities.org'
+commands:
+  servercarts:
+    description: Main plugin command.
+    usage: ServerCarts, by JCIBravo - Type ´/servercarts help´ for help
+    aliases: [ servercarts ]
+    permissions: servercarts.commands
+    permission-message: You need the "servercarts.commands" permission in order to use the command.
+permissions:
+  servercarts.*:
+    description: Permission for the whole plugin
+    default: op
+    children:
+      servercarts.commands: true
+      servercarts.signs: true
+  servercarts.commands:
+    description: Permission for the plugin commands
+    default: op
+  servercarts.signs:
+    description: Permission for the plugin commands
+    default: op

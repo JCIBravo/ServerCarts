@@ -1,0 +1,16 @@
+# #####################
+# #### SERVERCARTS ####
+# #####################
+# Another TrainCarts plugin
+# created by JCIBravo
+# https://jcibravo.neocities.org
+
+# Set the port you want your ServerCarts' API to start.
+# Make sure another program is NOT using this port!
+# (Default: 25570)
+apiPort: 25570
+
+# Set how many SECONDS you want to wait before
+# the tracker updates again.
+# (Default: 5)
+trackerUpdate: 5
