@@ -46,22 +46,25 @@ class DynmapTracker(private val plugin: Plugin, dynmap: Plugin) {
                         val label = """
                         <div style="font-family: sans-serif; margin: 2px;">
                             <h3 style="background: #303030; color: white; padding: 3px; text-align: center;">${textTrainIcon.repeat(train.carriages)} ${train.name?.capitalize() ?: train.id}</h3>
+                            
+                            <p><b>Train properties:</b></p>
                             <ul style="font-size: 12px;">
-                                <li><b>Train properties:</b></li>
                                 <li><b>ID:</b> ${train.id}</li>
                                 ${if (train.name != null && train.name.isNotBlank()){"<li><b>Name:</b> ${train.name}</li>"} else ""}
                                 <li><b>Speed:</b> ${train.speed.blocksPerTick}b/T<br><i style="font-size: 9px;">(Max. speed: ${train.speedLimit.blocksPerTick}b/T)</i></li>
                                 <li><b>Nº of cars:</b> ${train.carriages}</li>
                                 <li><b>Passengers:</b> ${train.passengers}</li>
                             </ul>
+                            
+                            ${if (train.destination != null || train.nextStop != null) "<p><b>ServerCarts' line properties:</b></p>" else ""}
                             <ul style="font-size: 12px;">
-                                <li><b>ServerCarts' line properties:</b></li>
                                 ${if (train.destination == null && train.nextStop == null) "<li><i>No data</i></li>" else ""}
                                 ${if (train.destination != null && train.destination.isNotBlank()){"<li><b>Destination:</b> ${train.destination}</li>"} else ""}
                                 ${if (train.nextStop != null && train.nextStop.isNotBlank()){"<li><b>Next stop:</b> ${train.nextStop}</li>"} else ""}                   
                             </ul>
+                            
+                            ${if (train.route.isNotEmpty() || train.nextDestinationRoute != null) "<p><b>TC Route properties:</b></p>" else ""}
                             <ul style="font-size: 12px;">
-                                <li><b>&#8226; TC Route properties:</b></li>
                                 ${if (train.route.isEmpty() && train.nextDestinationRoute == null) "<li><i>No route has been set</i></li>" else ""}
                                 ${if (train.route.isNotEmpty()){"<li>This train ends at ${train.route.last()}</li>"} else ""}
                                 ${if (train.nextDestinationRoute != null && train.nextDestinationRoute.isNotBlank()){"<li>The next stop in the route is ${train.nextDestinationRoute}</li>"} else ""}

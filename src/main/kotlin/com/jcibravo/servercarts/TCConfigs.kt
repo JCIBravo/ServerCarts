@@ -7,6 +7,8 @@ import com.bergerkiller.bukkit.tc.controller.MinecartMember
 import com.jcibravo.servercarts.data.CartData
 import com.jcibravo.servercarts.data.Speed
 import com.jcibravo.servercarts.data.TrainData
+import java.math.BigDecimal
+import java.math.RoundingMode
 import kotlin.math.roundToInt
 
 class TCConfigs {
@@ -227,25 +229,25 @@ class TCConfigs {
 
     fun getCartSpeed(carriage: MinecartMember<*>): Speed {
         return Speed(
-            carriage.realSpeedLimited,
-            convertToKmh(carriage.realSpeedLimited),
-            convertToMph(carriage.realSpeedLimited),
+            BigDecimal(carriage.realSpeedLimited).setScale(3, RoundingMode.HALF_UP).toDouble(),
+            BigDecimal(convertToKmh(carriage.realSpeedLimited)).setScale(3, RoundingMode.HALF_UP).toDouble(),
+            BigDecimal(convertToMph(carriage.realSpeedLimited)).setScale(3, RoundingMode.HALF_UP).toDouble(),
         )
     }
 
     fun getTrainRealSpeed(train: MinecartGroup): Speed {
         return Speed(
-            train[0].realSpeedLimited,
-            convertToKmh(train[0].realSpeedLimited),
-            convertToMph(train[0].realSpeedLimited),
+            BigDecimal(train[0].realSpeedLimited).setScale(3, RoundingMode.HALF_UP).toDouble(),
+            BigDecimal(convertToKmh(train[0].realSpeedLimited)).setScale(3, RoundingMode.HALF_UP).toDouble(),
+            BigDecimal(convertToMph(train[0].realSpeedLimited)).setScale(3, RoundingMode.HALF_UP).toDouble(),
         )
     }
 
     fun getSpeedLimit(train: MinecartGroup): Speed {
         return Speed(
-            train.properties.speedLimit,
-            convertToKmh(train.properties.speedLimit),
-            convertToMph(train.properties.speedLimit),
+            BigDecimal(train.properties.speedLimit).setScale(3, RoundingMode.HALF_UP).toDouble(),
+            BigDecimal(convertToKmh(train.properties.speedLimit)).setScale(3, RoundingMode.HALF_UP).toDouble(),
+            BigDecimal(convertToMph(train.properties.speedLimit)).setScale(3, RoundingMode.HALF_UP).toDouble(),
         )
     }
 }
